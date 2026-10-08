@@ -43,11 +43,9 @@ y_i = ⟨ψ(x)| U^† Z_i U |ψ(x)⟩  for each qubit i
 Because the spatial sliding loop passes over a 14x14 grid with a stride of 2, the final reconstructed output feature map transitions into a classical tensor shape of (batch_size, 4, 7, 7) before hitting the classical network layers.
 
 ---
+## Circuit Design
 
-## Quantum Circuit Design
-
-The 4-qubit variational ansatz configuration maps out according to the following layout:
-
+```text
 q_0: ──RY(x_0)───RX(θ_0)───RY(θ_4)────■───────────────■───────⟨Z_0⟩──
                                       │               │
 q_1: ──RY(x_1)───RX(θ_1)───RY(θ_5)────X───────■───────│───────⟨Z_1⟩──
@@ -56,9 +54,10 @@ q_2: ──RY(x_2)───RX(θ_2)───RY(θ_6)─────────�
                                                       │   │
 q_3: ──RY(x_3)───RX(θ_3)───RY(θ_7)────────────────────X───X───⟨Z_3⟩──
 
-      [ Encoding ] [    Parametric Rotations    ] [ Entanglement ] [ Readout ]
+[ Encoding ] [    Parametric Rotations    ] [ Entanglement ] [ Readout ]
 
----
+```
+
 
 ## Local Hardware Setup & Environment
 
